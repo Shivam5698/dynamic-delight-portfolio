@@ -98,7 +98,6 @@ const Hero = () => {
                 className="absolute inset-0 rounded-full overflow-hidden"
                 animate={{ 
                   y: [0, -15, 0],
-                  scale: [1, 1.02, 1],
                 }}
                 transition={{
                   duration: 4,
