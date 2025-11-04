@@ -31,10 +31,10 @@ const Hero = () => {
         />
         {/* Animated orbs */}
         <motion.div
-          className="absolute top-20 left-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl"
+          className="absolute top-20 left-20 w-90 h-98 bg-primary/20 rounded-full blur-3xl"
           animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
+            scale: [1, 1.3, 1],
+            opacity: [0.3, 0.6, 0.3],
           }}
           transition={{
             duration: 4,
