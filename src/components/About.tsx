@@ -17,7 +17,7 @@ const About = () => {
     <section id="about" className="py-20 bg-gradient-to-b from-background via-card/30 to-background relative overflow-hidden">
       {/* Animated background elements */}
       <motion.div
-        className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+       className="absolute top-0 right-0 w-[700px] h-[700px] bg-primary/10 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.3, 1],
           opacity: [0.2, 0.4, 0.2],
