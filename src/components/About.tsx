@@ -19,8 +19,8 @@ const About = () => {
       <motion.div
         className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
         animate={{
-          scale: [0.8, 1.3, 0.8],
-          opacity: [0.2, 0.6, 0.2],
+          scale: [1, 1.3, 1],
+          opacity: [0.2, 0.4, 0.2],
         }}
         transition={{
           duration: 6,
