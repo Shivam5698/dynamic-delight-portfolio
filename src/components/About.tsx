@@ -14,7 +14,20 @@ const About = () => {
   const shortText = professionalBackground.slice(0, 200) + "...";
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-background to-muted/20">
+    <section id="about" className="py-20 bg-gradient-to-b from-background via-card/30 to-background relative overflow-hidden">
+      {/* Animated background elements */}
+      <motion.div
+        className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.2, 0.4, 0.2],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}

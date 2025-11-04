@@ -50,7 +50,32 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-muted/20 to-background">
+    <section id="contact" className="py-20 bg-gradient-to-b from-background to-card/30 relative overflow-hidden">
+      {/* Animated orbs */}
+      <motion.div
+        className="absolute top-10 left-10 w-96 h-96 bg-primary/10 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.3, 1],
+          opacity: [0.3, 0.5, 0.3],
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+      <motion.div
+        className="absolute bottom-10 right-10 w-80 h-80 bg-accent/10 rounded-full blur-3xl"
+        animate={{
+          scale: [1.2, 1, 1.2],
+          x: [0, 20, 0],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}

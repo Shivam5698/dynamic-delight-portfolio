@@ -19,7 +19,20 @@ const Skills = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-20 bg-background">
+    <section id="skills" className="py-20 bg-gradient-to-b from-background to-card/30 relative overflow-hidden">
+      {/* Animated background */}
+      <motion.div
+        className="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl"
+        animate={{
+          x: [0, 50, 0],
+          y: [0, -30, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}

@@ -68,7 +68,20 @@ const Achievements = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="achievements" className="py-20 bg-background">
+    <section id="achievements" className="py-20 bg-gradient-to-b from-background to-card/30 relative overflow-hidden">
+      {/* Animated particles */}
+      <motion.div
+        className="absolute top-40 left-20 w-72 h-72 bg-accent/10 rounded-full blur-3xl"
+        animate={{
+          y: [0, -40, 0],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}

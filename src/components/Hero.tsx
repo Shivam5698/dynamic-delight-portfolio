@@ -16,51 +16,126 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5" />
+      {/* Dynamic animated background */}
+      <div className="absolute inset-0">
+        <motion.div 
+          className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/10"
+          animate={{
+            backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
+          }}
+          transition={{
+            duration: 20,
+            ease: "linear",
+            repeat: Infinity,
+          }}
+        />
+        {/* Animated orbs */}
+        <motion.div
+          className="absolute top-20 left-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl"
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.5, 0.3, 0.5],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      </div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-20">
-          {/* Profile Image with Gradient Ring */}
+          {/* Profile Image with Enhanced Gradient Ring */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, type: "spring", stiffness: 120, damping: 18 }}
             className="relative"
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80">
-              {/* Animated gradient ring */}
+            <div className="relative w-72 h-72 md:w-96 md:h-96">
+              {/* Glowing animated gradient ring */}
               <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_200%]"
+                className="absolute -inset-2 rounded-full bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_200%]"
                 animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                  rotate: [0, 360],
                 }}
                 transition={{
-                  duration: 3,
-                  ease: "linear",
-                  repeat: Infinity,
+                  backgroundPosition: {
+                    duration: 3,
+                    ease: "linear",
+                    repeat: Infinity,
+                  },
+                  rotate: {
+                    duration: 8,
+                    ease: "linear",
+                    repeat: Infinity,
+                  }
                 }}
-                style={{ padding: "6px" }}
+                style={{ 
+                  padding: "8px",
+                  filter: "drop-shadow(0 0 30px hsl(var(--primary) / 0.6))",
+                }}
               >
-                <div className="w-full h-full rounded-full bg-background" />
+                <div className="w-full h-full rounded-full bg-card" />
               </motion.div>
               
-              {/* Profile image */}
-              <motion.img
-                src={profileImage}
-                alt="Sachin Yadav"
-                className="absolute inset-[6px] rounded-full object-cover w-[calc(100%-12px)] h-[calc(100%-12px)]"
-                animate={{ y: [0, -10, 0] }}
+              {/* Profile image with better visibility */}
+              <motion.div
+                className="absolute inset-0 rounded-full overflow-hidden"
+                animate={{ 
+                  y: [0, -15, 0],
+                  scale: [1, 1.02, 1],
+                }}
                 transition={{
-                  duration: 3,
+                  duration: 4,
                   ease: "easeInOut",
                   repeat: Infinity,
+                }}
+              >
+                <img
+                  src={profileImage}
+                  alt="Sachin Yadav - Data Science Enthusiast"
+                  className="w-full h-full object-cover object-center scale-110"
+                  style={{
+                    filter: "brightness(1.1) contrast(1.05)",
+                  }}
+                />
+              </motion.div>
+
+              {/* Additional glow effect */}
+              <motion.div
+                className="absolute inset-0 rounded-full"
+                animate={{
+                  boxShadow: [
+                    "0 0 30px hsl(var(--primary) / 0.3)",
+                    "0 0 60px hsl(var(--primary) / 0.6)",
+                    "0 0 30px hsl(var(--primary) / 0.3)",
+                  ],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
                 }}
               />
             </div>
           </motion.div>
 
-          {/* Hero Content */}
+          {/* Hero Content with Enhanced Animations */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -68,72 +143,117 @@ const Hero = () => {
             className="text-center md:text-left max-w-2xl"
           >
             <motion.h1
-              className="text-5xl md:text-7xl font-bold mb-4"
+              className="text-5xl md:text-7xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
-              Hi, I'm{" "}
-              <span className="gradient-text">Sachin Yadav</span>
+              <motion.span
+                animate={{ opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                Hi, I'm{" "}
+              </motion.span>
+              <span className="gradient-text relative">
+                Sachin Yadav
+                <motion.span
+                  className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 0.8, duration: 0.8 }}
+                />
+              </span>
             </motion.h1>
 
             <div className="h-24 md:h-20 mb-8">
               <TypeAnimation
                 sequence={[
-                  "Data Science Enthusiast",
+                  "Data Science Enthusiast 📊",
                   2000,
-                  "Community Builder",
+                  "Machine Learning Engineer 🤖",
                   2000,
-                  "Tech Leader",
+                  "Community Founder 🚀",
                   2000,
-                  "Full-Stack Developer",
+                  "Full-Stack Developer 💻",
+                  2000,
+                  "Hackathon Champion 🏆",
                   2000,
                 ]}
                 wrapper="h2"
                 speed={50}
-                className="text-2xl md:text-4xl text-muted-foreground"
+                className="text-2xl md:text-4xl text-muted-foreground font-semibold"
                 repeat={Infinity}
               />
             </div>
 
             <motion.p
-              className="text-lg text-muted-foreground mb-8 max-w-xl"
+              className="text-lg text-muted-foreground mb-8 max-w-xl leading-relaxed"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
-              Building full-stack data-driven applications and leading communities
-              at NITRA Technical Campus. Turning messy data into meaningful stories.
+              Transforming raw data into actionable insights at{" "}
+              <span className="text-primary font-semibold">NITRA Technical Campus</span>.
+              Leading <span className="text-accent font-semibold">Hackgyanverse</span> & <span className="text-accent font-semibold">CODSOC</span>,
+              building ML pipelines, and competing at top institutions.
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons with Enhanced Animation */}
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
             >
-              <Button
-                size="lg"
-                onClick={scrollToProjects}
-                className="group relative overflow-hidden"
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <span className="relative z-10">View My Work</span>
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity"
-                  whileHover={{ scale: 1.05 }}
-                />
-              </Button>
+                <Button
+                  size="lg"
+                  onClick={scrollToProjects}
+                  className="group relative overflow-hidden shadow-lg hover:shadow-[var(--shadow-glow)]"
+                >
+                  <motion.span 
+                    className="relative z-10"
+                    animate={{ x: [0, 2, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    View My Work
+                  </motion.span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_200%]"
+                    animate={{
+                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                  />
+                </Button>
+              </motion.div>
 
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={handleDownloadResume}
-                className="group"
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-                Download Resume
-              </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={handleDownloadResume}
+                  className="group border-2 hover:border-primary/50 hover:bg-primary/10"
+                >
+                  <motion.div
+                    animate={{ y: [0, -3, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <Download className="mr-2 h-5 w-5" />
+                  </motion.div>
+                  Download Resume
+                </Button>
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>

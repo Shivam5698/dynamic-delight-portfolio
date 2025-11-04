@@ -54,7 +54,20 @@ const Projects = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-muted/20 to-background">
+    <section id="projects" className="py-20 bg-gradient-to-b from-card/30 to-background relative overflow-hidden">
+      {/* Dynamic particles effect */}
+      <motion.div
+        className="absolute top-20 right-40 w-64 h-64 bg-primary/10 rounded-full blur-3xl"
+        animate={{
+          scale: [1, 1.5, 1],
+          x: [0, 30, 0],
+        }}
+        transition={{
+          duration: 7,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}

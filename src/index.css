@@ -8,81 +8,47 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 15% 15%;
+    /* Dark Blue Theme - Primary */
+    --background: 220 45% 12%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 220 15% 15%;
+    --card: 220 40% 16%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 15%;
+    --popover: 220 40% 16%;
+    --popover-foreground: 0 0% 98%;
 
     /* Electric Blue - Primary brand color */
-    --primary: 198 100% 50%;
+    --primary: 198 100% 55%;
     --primary-foreground: 0 0% 100%;
     --primary-glow: 198 100% 70%;
 
-    /* Teal - Accent color */
-    --secondary: 169 100% 38%;
+    /* Cyan Accent */
+    --secondary: 180 100% 45%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 15% 96%;
-    --muted-foreground: 220 10% 46%;
+    --muted: 220 35% 20%;
+    --muted-foreground: 220 15% 70%;
 
-    --accent: 169 100% 38%;
+    --accent: 180 100% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 198 100% 50%;
+    --border: 220 35% 25%;
+    --input: 220 35% 20%;
+    --ring: 198 100% 55%;
 
     --radius: 1rem;
 
-    /* Custom tokens for portfolio */
-    --gradient-primary: linear-gradient(135deg, hsl(198 100% 50%), hsl(169 100% 38%));
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 15% 98%));
-    --shadow-elegant: 0 10px 40px -10px hsl(198 100% 50% / 0.2);
-    --shadow-card: 0 4px 20px hsl(220 15% 15% / 0.08);
+    /* Custom tokens for dark blue portfolio */
+    --gradient-primary: linear-gradient(135deg, hsl(198 100% 55%), hsl(180 100% 45%));
+    --gradient-hero: linear-gradient(180deg, hsl(220 45% 12%), hsl(220 40% 18%));
+    --shadow-elegant: 0 10px 50px -10px hsl(198 100% 55% / 0.4);
+    --shadow-glow: 0 0 60px hsl(198 100% 55% / 0.3);
+    --shadow-card: 0 8px 32px hsl(220 45% 8% / 0.5);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .dark {
-    --background: 220 20% 8%;
-    --foreground: 0 0% 98%;
-
-    --card: 220 18% 12%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 220 18% 12%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 198 100% 50%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 198 100% 70%;
-
-    --secondary: 169 100% 38%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 220 18% 18%;
-    --muted-foreground: 220 10% 65%;
-
-    --accent: 169 100% 38%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 18% 22%;
-    --input: 220 18% 22%;
-    --ring: 198 100% 50%;
-
-    --gradient-primary: linear-gradient(135deg, hsl(198 100% 50%), hsl(169 100% 38%));
-    --gradient-subtle: linear-gradient(180deg, hsl(220 20% 8%), hsl(220 18% 12%));
-    --shadow-elegant: 0 10px 40px -10px hsl(198 100% 50% / 0.3);
-    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
   }
 }
 
@@ -113,15 +79,5 @@ All colors MUST be HSL.
 
   .glass-effect {
     @apply bg-white/10 backdrop-blur-md border border-white/20;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
   }
 }
