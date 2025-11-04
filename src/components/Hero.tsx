@@ -109,7 +109,7 @@ const Hero = () => {
                 <img
                   src={profileImage}
                   alt="Sachin Yadav - Data Science Enthusiast"
-                  className="w-full h-full object-cover object-center scale-110"
+                  className="w-full h-full object-cover object-center"
                   style={{
                     filter: "brightness(1.1) contrast(1.05)",
                   }}
